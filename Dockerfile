@@ -1,6 +1,7 @@
-FROM python:3.7-slim
+FROM python:3.6-slim
+MAINTAINER varunkumar032@gmail.com
 COPY . /simple_api_app
 WORKDIR /simple_api_app
 RUN pip install --no-cache-dir -r requirements.txt
-RUN ["pytes", "-v", "--junitxml=reports/result.xml"]
+RUN ["pytest", "-v", "--junitxml=reports/result.xml"]
 CMD tail -f /dev/null
