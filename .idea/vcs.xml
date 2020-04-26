@@ -2,5 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/jenkins_data/caches/git-9b56f017178bdb5899d91f8f907524dd" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/jenkins_data/workspace/simple_api_app" vcs="Git" />
   </component>
 </project>
