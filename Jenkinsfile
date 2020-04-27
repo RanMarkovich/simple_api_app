@@ -4,7 +4,8 @@ pipeline {
     stage('build') {
       steps {
         sh 'pip install -r requirements.txt'
-        sh 'python app.py'
+        sh 'docker build -t simple-api-app:latest .'
+        sh 'docker run -d -p 5000:5000 simple-api-app'
       }
     }
     stage('test') {
