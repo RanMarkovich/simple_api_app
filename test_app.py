@@ -4,7 +4,7 @@ from pytest import fixture
 
 @fixture
 def route():
-    return 'http://localhost:5002'
+    return 'http://0.0.0.0:5002'
 
 
 def test_hello_world(route):
