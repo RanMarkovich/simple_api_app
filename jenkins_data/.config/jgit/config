@@ -1,0 +1,3 @@
+[filesystem "bc291536cd7e|IcedTea|1.8.0_212|osxfs"]
+	timestampResolution = 1001 milliseconds
+	minRacyThreshold = 0 nanoseconds
