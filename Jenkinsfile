@@ -1,4 +1,4 @@
-node('flask_slave'){
+node('slave_v2'){
     stage('SCM'){
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false,
          extensions: [], submoduleCfg: [],
