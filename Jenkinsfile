@@ -1,4 +1,4 @@
-node('docker_v2'){
+node('docker'){
     stage('SCM'){
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false,
          extensions: [], submoduleCfg: [],
