@@ -1,4 +1,4 @@
-node('PYTHONCORE'){
+node('flask_slave'){
     stage('SCM'){
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false,
          extensions: [], submoduleCfg: [],
