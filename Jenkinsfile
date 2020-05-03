@@ -2,10 +2,10 @@ node('PYTHONCORE'){
     stage('SCM'){
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false,
          extensions: [], submoduleCfg: [],
-         userRemoteConfigs: [[url: 'https://github.com/RanMarkovich/hello_jenkins_docker.git']]])
+         userRemoteConfigs: [[url: 'https://github.com/RanMarkovich/simple_api_app.git']]])
     }
     stage('Build'){
-        sh 'python3 hello_jenkins_docker.py'
+        sh 'python3 app.py'
     }
     stage('Test'){
         echo 'Execute unit tests'
