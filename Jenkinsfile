@@ -1,17 +1,19 @@
-node('docker'){
+node('PYTHONCORE'){
     stage('SCM'){
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false,
          extensions: [], submoduleCfg: [],
-         userRemoteConfigs: [[url: 'https://github.com/RanMarkovich/simple_api_app.git']]])
+         userRemoteConfigs: [[url: 'https://github.com/RanMarkovich/hello_jenkins_docker.git']]])
     }
     stage('Build'){
-        sh 'docker build -t app:lts .'
-        sh 'pip3 --no-cache-dir install -r requirements.txt'
-    }
-    stage('Run'){
-        sh 'docker run -d -p 5000:5000 app'
+        sh 'python3 hello_jenkins_docker.py'
     }
     stage('Test'){
-        sh 'pytest test_app.py'
+        echo 'Execute unit tests'
+    }
+    stage('Package'){
+        echo 'Zip it up'
+    }
+    stage('Deploy'){
+        echo 'Push to deployment'
     }
 }
