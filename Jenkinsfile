@@ -1,19 +1,16 @@
-node('PYTHONCORE'){
-    stage('SCM'){
-        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false,
-         extensions: [], submoduleCfg: [],
-         userRemoteConfigs: [[url: 'https://github.com/RanMarkovich/simple_api_app.git']]])
-    }
-    stage('Build'){
-        sh 'python3 app.py'
-    }
-    stage('Test'){
-        echo 'Execute unit tests'
-    }
-    stage('Package'){
-        echo 'Zip it up'
-    }
-    stage('Deploy'){
-        echo 'Push to deployment'
+pipeline {
+    agent { docker { image 'ranmarkovich/dockerjenkinspython:v1' } }
+    stages {
+        stage('build') {
+            steps {
+                sh 'pip install flask'
+                sh 'pip install pytest'
+            }
+        }
+        stage('test') {
+            steps {
+                sh 'pytest test_app.py'
+            }
+        }
     }
 }
